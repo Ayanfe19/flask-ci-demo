@@ -28,7 +28,8 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                        echo "$DOCKER_CREDENTIALS_PSW" | docker login -u "$DOCKER_CREDENTIALS_USR" --password-stdin
+                        docker push ${DOCKER_IMAGE}:${BUILD_ID}
                         docker push ${DOCKER_IMAGE}:latest
                     '''
                 }

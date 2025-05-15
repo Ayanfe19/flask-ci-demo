@@ -4,6 +4,7 @@ pipeline {
     environment {
         REPO_URL = 'https://github.com/ayanfe19/flask-ci-demo.git'
         DOCKER_IMAGE = 'ayanf3d3v/flask-ci-demo'
+        DOCKER_CREDENTIALS = credentials('DOCKER_CREDENTIALS')
     }
 
     stages {
@@ -33,7 +34,7 @@ pipeline {
                 }
             }
         }
-    }
+    }	
 
     post {
         always {
